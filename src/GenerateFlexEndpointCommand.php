@@ -109,12 +109,12 @@ class GenerateFlexEndpointCommand extends Command
             case self::PROVIDER_GITHUB:
                 $baseHost = 'github.com';
                 $recipeTemplate = sprintf('https://raw.githubusercontent.com/%s/%s/{package_dotted}.{version}.json', $repository, $flexBranch);
-                $archivedRecipesTemplate = sprintf('https://raw.githubusercontent.com/%s/%s/archived/{package_dotted}.{version}.json', $repository, $flexBranch);
+                $archivedRecipesTemplate = sprintf('https://raw.githubusercontent.com/%s/%s/archived/{package_dotted}/{ref}.json', $repository, $flexBranch);
                 break;
             case self::PROVIDER_GITLAB:
                 $baseHost = 'gitlab.com';
                 $recipeTemplate = sprintf('https://gitlab.com/api/v4/projects/%s/repository/files/{package_dotted}.{version}.json/raw?ref=%s', urlencode($repository), $flexBranch);
-                $archivedRecipesTemplate = sprintf('https://gitlab.com/api/v4/projects/%s/repository/files/archived/{package_dotted}.{version}.json/raw?ref=%s', urlencode($repository), $flexBranch);
+                $archivedRecipesTemplate = sprintf('https://gitlab.com/api/v4/projects/%s/repository/files/archived%%2F{package_dotted}%%2F{ref}.json/raw?ref=%s', urlencode($repository), $flexBranch);
                 break;
             default:
                 throw new \InvalidArgumentException(sprintf('Unsupported provider "%s".', $provider));
