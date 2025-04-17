@@ -19,8 +19,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'generate:flex-endpoint', description: 'Generates the json files required by Flex')]
 class GenerateFlexEndpointCommand extends Command
 {
-    public const PROVIDER_GITHUB = 'github';
-    public const PROVIDER_GITLAB = 'gitlab';
+    private const PROVIDER_GITHUB = 'github';
+    private const PROVIDER_GITLAB = 'gitlab';
 
     protected function configure(): void
     {
