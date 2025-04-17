@@ -31,7 +31,14 @@ class GenerateFlexEndpointCommand extends Command
             ->addArgument('output_directory', InputArgument::REQUIRED, 'The directory where generated files should be stored')
             ->addArgument('versions_json', InputArgument::OPTIONAL, 'The file where versions of Symfony are described')
             ->addOption('contrib')
-            ->addOption('provider', null, InputOption::VALUE_REQUIRED, 'Provider of the repository (github or gitlab)', self::PROVIDER_GITHUB)
+            ->addOption(
+                'provider',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'Provider of the repository (github or gitlab)',
+                self::PROVIDER_GITHUB,
+                [self::PROVIDER_GITHUB, self::PROVIDER_GITLAB]
+            )
         ;
     }
 
