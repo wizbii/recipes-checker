@@ -138,9 +138,7 @@ class GenerateFlexEndpointCommand extends Command
                 'repository' => sprintf('%s/%s', $baseHost, $repository),
                 'origin_template' => sprintf('{package}:{version}@%s/%s:%s', $baseHost, $repository, $sourceBranch),
                 'recipe_template' => $recipeTemplate,
-                'recipe_template_relative' => sprintf('{package_dotted}.{version}.json'),
                 'archived_recipes_template' => $archivedRecipesTemplate,
-                'archived_recipes_template_relative' => sprintf('archived/{package_dotted}/{ref}.json'),
             ],
         ], \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES)."\n");
 
